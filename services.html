@@ -1,0 +1,1096 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Services | Israr Ahmed</title>
+  <meta name="description" content="Graphic design, brand identity, social media content, video editing, campaign design and custom creative services by Israr Ahmed.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/projects.css">
+
+  <style>
+    :root {
+      --obsidian: #171719;
+      --crimson: #641E2B;
+      --ruby: #922F40;
+      --charcoal: #292629;
+      --ivory: #E9E2DF;
+      --taupe: #B7A29A;
+      --line: rgba(233, 226, 223, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--obsidian);
+      color: var(--ivory);
+      font-family: "Montserrat", Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    ::selection {
+      background: var(--ruby);
+      color: var(--ivory);
+    }
+
+    /* PAGE FRAME */
+
+    .portfolio-frame {
+      width: 100%;
+      max-width: 1480px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 0 6%;
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      overflow: clip;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      border-bottom: 1px solid var(--line);
+      animation: headerReveal 0.8s ease both;
+    }
+
+    .site-logo {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    .site-navigation {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 26px;
+    }
+
+    .site-navigation a {
+      position: relative;
+      padding: 9px 0;
+      color: var(--taupe);
+      font-size: 11px;
+      letter-spacing: 0.4px;
+      transition: color 0.3s ease;
+    }
+
+    .site-navigation a::after {
+      position: absolute;
+      right: 0;
+      bottom: 2px;
+      left: 0;
+      height: 1px;
+      background: var(--ivory);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .site-navigation a:hover,
+    .site-navigation a[aria-current="page"] {
+      color: var(--ivory);
+    }
+
+    .site-navigation a:hover::after,
+    .site-navigation a[aria-current="page"]::after {
+      transform: scaleX(1);
+    }
+
+    .site-navigation .nav-cta {
+      padding: 11px 14px;
+      border: 1px solid rgba(233, 226, 223, 0.32);
+      color: var(--ivory);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .site-navigation .nav-cta::after {
+      display: none;
+    }
+
+    .site-navigation .nav-cta:hover {
+      background: var(--crimson);
+      border-color: var(--crimson);
+    }
+
+    /* COMPACT HERO */
+
+    .services-hero {
+      position: relative;
+      padding: 42px 0 25px;
+    }
+
+    .hero-index {
+      position: absolute;
+      top: 28px;
+      right: 0;
+      color: rgba(183, 162, 154, 0.10);
+      font-size: clamp(60px, 8vw, 105px);
+      font-weight: 500;
+      letter-spacing: -5px;
+      line-height: 1;
+      pointer-events: none;
+      animation: indexReveal 1.1s ease both;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--taupe);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      line-height: 1.7;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 24px;
+      height: 1px;
+      flex-shrink: 0;
+      background: var(--ruby);
+      content: "";
+    }
+
+    .hero-eyebrow,
+    .services-hero h1,
+    .hero-description {
+      animation: riseIn 0.75s ease both;
+    }
+
+    .hero-eyebrow {
+      animation-delay: 0.1s;
+    }
+
+    .services-hero h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 15px 0 13px;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 500;
+      letter-spacing: -2.5px;
+      line-height: 1.04;
+      animation-delay: 0.2s;
+    }
+
+    .services-hero h1 span {
+      color: var(--ruby);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-description {
+      max-width: 500px;
+      margin: 0;
+      color: var(--taupe);
+      font-size: 11px;
+      line-height: 1.8;
+      animation-delay: 0.3s;
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 23px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--taupe);
+      font-size: 9px;
+      letter-spacing: 0.5px;
+      animation: fadeIn 0.8s ease 0.4s both;
+    }
+
+    .hero-bottom a {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: color 0.25s ease;
+    }
+
+    .hero-bottom a:hover {
+      color: var(--ivory);
+    }
+
+    .down-arrow {
+      display: inline-block;
+      animation: gentleBounce 1.8s ease-in-out infinite;
+    }
+
+    /* SECTION HEADINGS */
+
+    .services-section {
+      padding-top: 10px;
+      scroll-margin-top: 30px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 22px;
+      margin-bottom: 22px;
+    }
+
+    .section-heading h2 {
+      margin: 9px 0 0;
+      font-size: clamp(25px, 3vw, 35px);
+      font-weight: 500;
+      letter-spacing: -1px;
+    }
+
+    .section-note {
+      max-width: 230px;
+      margin: 0;
+      color: var(--taupe);
+      font-size: 10px;
+      line-height: 1.8;
+      text-align: right;
+    }
+
+    /* SERVICE CARDS */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .service-card {
+      position: relative;
+      display: flex;
+      min-width: 0;
+      min-height: 250px;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 26px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        background 0.4s ease,
+        border-color 0.35s ease,
+        transform 0.5s ease,
+        opacity 0.6s ease;
+    }
+
+    .service-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card:hover {
+      z-index: 1;
+      background: radial-gradient(
+        circle at 100% 100%,
+        rgba(100, 30, 43, 0.22),
+        transparent 68%
+      );
+      border-color: rgba(183, 162, 154, 0.34);
+    }
+
+    .service-topline {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .service-number {
+      color: var(--ruby);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .service-tag {
+      max-width: 65%;
+      padding: 5px 9px;
+      border: 1px solid rgba(183, 162, 154, 0.27);
+      border-radius: 30px;
+      color: var(--taupe);
+      font-size: 8px;
+      letter-spacing: 0.8px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .service-card h3 {
+      max-width: 450px;
+      margin: 0 0 12px;
+      font-size: clamp(20px, 2.3vw, 27px);
+      font-weight: 500;
+      letter-spacing: -0.6px;
+      line-height: 1.3;
+      transition: color 0.3s ease;
+    }
+
+    .service-card:hover h3 {
+      color: #fff7f4;
+    }
+
+    .service-card p {
+      max-width: 430px;
+      margin: 0;
+      padding-right: 10px;
+      color: var(--taupe);
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    .service-arrow {
+      display: flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      margin-top: auto;
+      padding-top: 12px;
+      color: var(--ivory);
+      font-size: 19px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .service-card:hover .service-arrow {
+      color: #d99ba5;
+      transform: translate(5px, -3px);
+    }
+
+    /* ADDITIONAL SERVICES */
+
+    .additional-services {
+      padding-top: 65px;
+    }
+
+    /* CUSTOM PROJECT */
+
+    .custom-section {
+      padding-top: 75px;
+      scroll-margin-top: 30px;
+    }
+
+    .custom-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.85fr);
+      gap: 32px;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 48px);
+      border: 1px solid rgba(146, 47, 64, 0.65);
+      background:
+        radial-gradient(
+          ellipse at 100% 0%,
+          rgba(146, 47, 64, 0.2),
+          transparent 48%
+        ),
+        var(--charcoal);
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity 0.65s ease,
+        transform 0.65s ease,
+        border-color 0.3s ease;
+    }
+
+    .custom-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .custom-card:hover {
+      border-color: rgba(183, 162, 154, 0.55);
+    }
+
+    .custom-card h2 {
+      max-width: 600px;
+      margin: 19px 0 15px;
+      font-size: clamp(30px, 4.4vw, 51px);
+      font-weight: 500;
+      letter-spacing: -1.7px;
+      line-height: 1.08;
+    }
+
+    .custom-card h2 span {
+      color: var(--ruby);
+      font-style: italic;
+    }
+
+    .custom-description {
+      max-width: 520px;
+      margin: 0;
+      color: var(--taupe);
+      font-size: 11px;
+      line-height: 1.95;
+    }
+
+    .custom-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .custom-prompt {
+      margin: 0 0 18px;
+      color: var(--ivory);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .custom-list {
+      display: grid;
+      gap: 11px;
+      margin: 0 0 25px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .custom-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--taupe);
+      font-size: 10px;
+      line-height: 1.7;
+    }
+
+    .custom-list li::before {
+      color: var(--ruby);
+      content: "↗";
+    }
+
+    .contact-button {
+      display: inline-flex;
+      min-height: 45px;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 13px 18px;
+      border: 1px solid var(--ruby);
+      background: var(--crimson);
+      color: var(--ivory);
+      font-size: 10px;
+      transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .contact-button:hover {
+      border-color: var(--ruby);
+      background: var(--ruby);
+      transform: translateY(-3px);
+    }
+
+    .contact-button span {
+      transition: transform 0.3s ease;
+    }
+
+    .contact-button:hover span {
+      transform: translateX(4px);
+    }
+
+    /* CLOSING SECTION */
+
+    .closing-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 75px;
+      padding: 35px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .closing-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .closing-section h2 {
+      max-width: 600px;
+      margin: 13px 0 10px;
+      font-size: clamp(27px, 3.5vw, 42px);
+      font-weight: 500;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+    }
+
+    .closing-section p {
+      max-width: 500px;
+      margin: 0;
+      color: var(--taupe);
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 23px 0 30px;
+      color: var(--taupe);
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes headerReveal {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes indexReveal {
+      from {
+        opacity: 0;
+        transform: translateX(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    /* TABLET */
+
+    @media (max-width: 850px) {
+      .portfolio-frame {
+        padding-right: 4%;
+        padding-left: 4%;
+      }
+
+      .site-header {
+        min-height: auto;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        padding: 23px 0;
+      }
+
+      .site-navigation {
+        justify-content: flex-start;
+        gap: 13px 20px;
+      }
+
+      .services-hero {
+        padding: 35px 0 23px;
+      }
+
+      .hero-index {
+        top: 25px;
+      }
+
+      .service-card {
+        min-height: 240px;
+        padding: 23px;
+      }
+
+      .custom-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 560px) {
+      .portfolio-frame {
+        padding-right: 18px;
+        padding-left: 18px;
+      }
+
+      .site-navigation {
+        gap: 9px 15px;
+      }
+
+      .site-navigation a {
+        font-size: 10px;
+      }
+
+      .site-navigation .nav-cta {
+        padding: 9px 10px;
+      }
+
+      .services-hero {
+        padding: 30px 0 20px;
+      }
+
+      .hero-index {
+        top: 24px;
+        font-size: 54px;
+        letter-spacing: -3px;
+      }
+
+      .services-hero h1 {
+        margin: 13px 0 12px;
+        font-size: clamp(34px, 9vw, 46px);
+        letter-spacing: -1.5px;
+      }
+
+      .hero-description {
+        font-size: 11px;
+        line-height: 1.75;
+      }
+
+      .hero-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      .section-note {
+        text-align: left;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: 220px;
+        padding: 22px;
+      }
+
+      .service-topline {
+        margin-bottom: 23px;
+      }
+
+      .service-card h3 {
+        font-size: 23px;
+      }
+
+      .service-card p {
+        font-size: 11px;
+      }
+
+      .additional-services {
+        padding-top: 50px;
+      }
+
+      .custom-section {
+        padding-top: 55px;
+      }
+
+      .custom-card {
+        gap: 26px;
+        padding: 25px 20px;
+      }
+
+      .custom-card h2 {
+        font-size: clamp(31px, 8.5vw, 43px);
+        letter-spacing: -1.3px;
+      }
+
+      .closing-section {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 22px;
+        margin-top: 55px;
+      }
+
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+
+    /* REDUCED MOTION ACCESSIBILITY */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .service-card,
+      .custom-card,
+      .closing-section {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="portfolio-frame">
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <a class="site-logo" href="index.html">ISRAR AHMED</a>
+
+      <nav class="site-navigation" aria-label="Main navigation">
+        <a href="projects.html">Projects</a>
+        <a href="services.html" aria-current="page">Services</a>
+        <a href="explorations.html">Explorations</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Start a Project ↗</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- COMPACT HERO -->
+      <section class="services-hero">
+        <div class="hero-index" aria-hidden="true">01—07</div>
+
+        <div class="hero-eyebrow eyebrow">
+          What I can do for you
+        </div>
+
+        <h1>
+          Creative work.<br>
+          <span>Thoughtful execution.</span>
+        </h1>
+
+        <p class="hero-description">
+          Every project starts with an idea. I help turn those ideas
+          into purposeful visual experiences through design,
+          storytelling and creative exploration.
+        </p>
+
+        <div class="hero-bottom">
+          <span>DESIGN · IDENTITY · CONTENT · STORYTELLING</span>
+
+          <a href="#core-services">
+            Explore services
+            <span class="down-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- FOUR CORE SERVICES -->
+      <section class="services-section" id="core-services">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">The essentials</div>
+            <h2>Core Services</h2>
+          </div>
+
+          <p class="section-note">
+            Thoughtful design, made to communicate.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card">
+            <div class="service-topline">
+              <span class="service-number">01 / 07</span>
+              <span class="service-tag">Core service</span>
+            </div>
+
+            <h3>Graphic &amp; Marketing Design</h3>
+
+            <p>
+              Posters, banners, flyers, invitations, certificates,
+              brochures, menus, advertising creatives and promotional
+              materials shaped around your message.
+            </p>
+
+            <a class="service-arrow" href="contact.html"
+               aria-label="Enquire about graphic and marketing design">↗</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-topline">
+              <span class="service-number">02 / 07</span>
+              <span class="service-tag">Core service</span>
+            </div>
+
+            <h3>Brand Identity &amp; Logo Design</h3>
+
+            <p>
+              Logo concepts, colour palettes, typography and visual
+              identity elements that help your brand feel recognisable
+              and consistent.
+            </p>
+
+            <a class="service-arrow" href="contact.html"
+               aria-label="Enquire about brand identity design">↗</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-topline">
+              <span class="service-number">03 / 07</span>
+              <span class="service-tag">Core service</span>
+            </div>
+
+            <h3>Social Media Design &amp; Content</h3>
+
+            <p>
+              Social posts, carousels, stories, reel covers, memes,
+              festival creatives and promotional content tailored
+              to your brand and audience.
+            </p>
+
+            <a class="service-arrow" href="contact.html"
+               aria-label="Enquire about social media design">↗</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-topline">
+              <span class="service-number">04 / 07</span>
+              <span class="service-tag">Core service</span>
+            </div>
+
+            <h3>Video Editing &amp; Reels</h3>
+
+            <p>
+              Reels, shorts and promotional videos with subtitles,
+              text placement, colour grading and visual pacing
+              suited to your content.
+            </p>
+
+            <a class="service-arrow" href="contact.html"
+               aria-label="Enquire about video editing">↗</a>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ADDITIONAL SERVICES -->
+      <section class="services-section additional-services">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">More ways to collaborate</div>
+            <h2>Additional Services</h2>
+          </div>
+
+          <p class="section-note">
+            Connecting ideas across different formats.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card">
+            <div class="service-topline">
+              <span class="service-number">05 / 07</span>
+              <span class="service-tag">Campaigns</span>
+            </div>
+
+            <h3>Campaign &amp; Event Design</h3>
+
+            <p>
+              Coordinated visuals for events, launches, awareness
+              campaigns and promotions, including backdrops,
+              standees, hoardings, banners and event collateral.
+            </p>
+
+            <a class="service-arrow" href="contact.html"
+               aria-label="Enquire about campaign and event design">↗</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-topline">
+              <span class="service-number">06 / 07</span>
+              <span class="service-tag">Creative support</span>
+            </div>
+
+            <h3>Creative Direction &amp; Content Planning</h3>
+
+            <p>
+              Visual concepts, creative references, campaign themes
+              and content planning to help keep your brand's
+              communication visually consistent.
+            </p>
+
+            <a class="service-arrow" href="contact.html"
+               aria-label="Enquire about creative direction">↗</a>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- CUSTOM CREATIVE REQUEST -->
+      <section class="custom-section">
+        <div class="custom-card">
+
+          <div class="custom-left">
+            <div class="eyebrow">07 / 07 · Open to possibilities</div>
+
+            <h2>
+              Something else?<br>
+              <span>Let's figure it out.</span>
+            </h2>
+
+            <p class="custom-description">
+              Don't see exactly what you're looking for? That's okay.
+              Tell me about your idea, even if it's something new or
+              outside the services listed here. I'm open to exploring
+              new creative challenges, learning the tools and techniques
+              needed, and working towards bringing your vision to life.
+            </p>
+          </div>
+
+          <div class="custom-right">
+            <p class="custom-prompt">
+              Tell me a little about what you have in mind:
+            </p>
+
+            <ul class="custom-list">
+              <li>What you want to create</li>
+              <li>The idea or goal behind it</li>
+              <li>Any examples or references you like</li>
+              <li>Your expected timeline</li>
+            </ul>
+
+            <a class="contact-button" href="contact.html">
+              Tell Me Your Idea <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CLOSING CTA -->
+      <section class="closing-section">
+        <div>
+          <div class="eyebrow">Your idea, the next step</div>
+
+          <h2>Let's create something meaningful.</h2>
+
+          <p>
+            Whether you have a clear brief or just the beginning
+            of an idea, let's start a conversation and explore
+            what we can create together.
+          </p>
+        </div>
+
+        <a class="contact-button" href="contact.html">
+          Start a Project <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <span>© <span id="current-year">2026</span> Israr Ahmed</span>
+      <span>Made with intention.</span>
+    </footer>
+
+  </div>
+
+  <script>
+    // Automatically update the footer year.
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+
+    // Reveal service cards as they enter the viewport.
+    const revealItems = document.querySelectorAll(
+      ".service-card, .custom-card, .closing-section"
+    );
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if ("IntersectionObserver" in window && !reduceMotion) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.08,
+          rootMargin: "0px 0px -20px 0px"
+        }
+      );
+
+      revealItems.forEach((item, index) => {
+        item.style.transitionDelay =
+          `${(index % 4) * 80}ms`;
+
+        revealObserver.observe(item);
+      });
+    } else {
+      revealItems.forEach((item) => {
+        item.classList.add("is-visible");
+      });
+    }
+  </script>
+</body>
+</html>

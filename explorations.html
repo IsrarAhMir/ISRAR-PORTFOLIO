@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171719">
+
+  <title>Explorations — Israr Ahmed</title>
+  <meta
+    name="description"
+    content="A creative space for visual experiments, typography, colour studies and ideas by Israr Ahmed."
+  >
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/projects.css">
+
+  <style>
+    :root {
+      --obsidian: #171719;
+      --crimson: #641E2B;
+      --ruby: #922F40;
+      --charcoal: #292629;
+      --ivory: #E9E2DF;
+      --taupe: #B7A29A;
+      --muted: #918987;
+      --line: rgba(233, 226, 223, 0.15);
+      --soft-line: rgba(233, 226, 223, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 35px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--obsidian);
+      color: var(--ivory);
+      font-family: "Montserrat", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .portfolio-frame {
+      width: min(100% - 44px, 1480px);
+      min-height: 100vh;
+      margin: 0 auto;
+      border-left: 1px solid var(--soft-line);
+      border-right: 1px solid var(--soft-line);
+      padding: 0 5.2%;
+      overflow: hidden;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      min-height: 94px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-name {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      white-space: nowrap;
+    }
+
+    .site-navigation {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: clamp(15px, 2.5vw, 34px);
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 7px 0;
+      color: var(--taupe);
+      font-size: 10px;
+      letter-spacing: 0.035em;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--ivory);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link[aria-current="page"] {
+      color: var(--ivory);
+    }
+
+    .nav-link:hover::after,
+    .nav-link[aria-current="page"]::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 15px;
+      border: 1px solid rgba(233, 226, 223, 0.32);
+      font-size: 10px;
+      transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      background: var(--ivory);
+      border-color: var(--ivory);
+      color: var(--obsidian);
+    }
+
+    .nav-cta span {
+      transition: transform 0.25s ease;
+    }
+
+    .nav-cta:hover span {
+      transform: translate(3px, -3px);
+    }
+
+    /* INTRODUCTION */
+
+    .explore-hero {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      align-items: end;
+      gap: 35px;
+      padding: 76px 0 45px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--taupe);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 20px;
+      height: 1px;
+      background: var(--ruby);
+    }
+
+    .explore-title {
+      max-width: 760px;
+      margin: 24px 0 0;
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.075em;
+    }
+
+    .explore-title em {
+      color: var(--taupe);
+      font-weight: 400;
+    }
+
+    .hero-aside {
+      max-width: 290px;
+      justify-self: end;
+      padding-bottom: 5px;
+    }
+
+    .hero-aside p {
+      margin: 0;
+      color: var(--taupe);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .hero-aside .aside-note {
+      display: block;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    /* SECTION HEADING */
+
+    .explore-section {
+      padding: 45px 0 85px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 27px;
+    }
+
+    .section-heading h2 {
+      margin: 12px 0 0;
+      font-size: clamp(23px, 3vw, 34px);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+    }
+
+    .section-heading p {
+      max-width: 270px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.8;
+      text-align: right;
+    }
+
+    /* EXPLORATION CARDS */
+
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px 22px;
+    }
+
+    .explore-card {
+      min-width: 0;
+      opacity: 0;
+      transform: translateY(18px);
+      transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+    }
+
+    .explore-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .study-art {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1.42 / 1;
+      overflow: hidden;
+      border: 1px solid rgba(233, 226, 223, 0.08);
+      background: #202022;
+      isolation: isolate;
+      transition: border-color 0.35s ease;
+    }
+
+    .explore-card:hover .study-art {
+      border-color: rgba(233, 226, 223, 0.25);
+    }
+
+    .study-number {
+      position: absolute;
+      top: 17px;
+      left: 18px;
+      z-index: 5;
+      color: rgba(233, 226, 223, 0.58);
+      font-size: 9px;
+      letter-spacing: 0.13em;
+    }
+
+    .study-label {
+      position: absolute;
+      right: 18px;
+      bottom: 17px;
+      z-index: 5;
+      color: rgba(233, 226, 223, 0.62);
+      font-size: 8px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .card-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 15px;
+      padding: 17px 1px 0;
+    }
+
+    .card-info h3 {
+      margin: 0;
+      font-size: clamp(15px, 2vw, 20px);
+      font-weight: 500;
+      letter-spacing: -0.035em;
+    }
+
+    .card-info p {
+      max-width: 360px;
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .card-index {
+      flex-shrink: 0;
+      color: var(--taupe);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+    }
+
+    /* VISUAL STUDY 01: COMPOSITION */
+
+    .art-composition {
+      background:
+        radial-gradient(ellipse at 78% 22%, rgba(146, 47, 64, 0.19), transparent 40%),
+        #211d20;
+    }
+
+    .composition-stage {
+      position: relative;
+      width: 48%;
+      height: 69%;
+      border: 1px solid rgba(233, 226, 223, 0.36);
+      transform: rotate(-7deg);
+      transition: transform 0.5s ease;
+    }
+
+    .explore-card:hover .composition-stage {
+      transform: rotate(-3deg) scale(1.03);
+    }
+
+    .composition-stage::before {
+      content: "";
+      position: absolute;
+      width: 68%;
+      height: 66%;
+      left: 17%;
+      top: 15%;
+      background: var(--crimson);
+      clip-path: polygon(50% 0, 100% 100%, 0 84%);
+    }
+
+    .composition-stage::after {
+      content: "";
+      position: absolute;
+      width: 62%;
+      height: 60%;
+      left: 30%;
+      top: 23%;
+      border: 1px solid rgba(233, 226, 223, 0.72);
+      border-radius: 50%;
+    }
+
+    .composition-dot {
+      position: absolute;
+      z-index: 2;
+      right: 13%;
+      top: 12%;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: var(--ivory);
+    }
+
+    /* VISUAL STUDY 02: TYPOGRAPHY */
+
+    .art-type {
+      background: #e2d8d0;
+      color: #292629;
+    }
+
+    .type-layout {
+      position: relative;
+      width: 72%;
+      transform: rotate(-4deg);
+      transition: transform 0.5s ease;
+    }
+
+    .explore-card:hover .type-layout {
+      transform: rotate(0deg);
+    }
+
+    .type-layout .type-small {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 8px;
+      letter-spacing: 0.3em;
+    }
+
+    .type-layout .type-big {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(54px, 8vw, 105px);
+      font-weight: 400;
+      line-height: 0.76;
+      letter-spacing: -0.105em;
+    }
+
+    .type-layout .type-outline {
+      display: block;
+      margin-left: 20%;
+      color: transparent;
+      -webkit-text-stroke: 1px #641e2b;
+    }
+
+    .type-layout .type-rule {
+      display: block;
+      width: 75%;
+      height: 1px;
+      margin-top: 20px;
+      background: rgba(41, 38, 41, 0.4);
+    }
+
+    /* VISUAL STUDY 03: COLOUR */
+
+    .art-colour {
+      background: #282426;
+    }
+
+    .colour-arrangement {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 72%;
+      height: 58%;
+      transform: rotate(5deg);
+      transition: transform 0.5s ease;
+    }
+
+    .explore-card:hover .colour-arrangement {
+      transform: rotate(0) scale(1.03);
+    }
+
+    .colour-swatch {
+      flex: 1;
+      height: 100%;
+      border: 1px solid rgba(233, 226, 223, 0.12);
+    }
+
+    .colour-swatch:nth-child(1) {
+      height: 72%;
+      background: #171719;
+      transform: translateY(18%);
+    }
+
+    .colour-swatch:nth-child(2) {
+      height: 94%;
+      background: #641e2b;
+      transform: translateY(-3%);
+    }
+
+    .colour-swatch:nth-child(3) {
+      height: 81%;
+      background: #922f40;
+      transform: translateY(10%);
+    }
+
+    .colour-swatch:nth-child(4) {
+      height: 68%;
+      background: #b7a29a;
+      transform: translateY(-12%);
+    }
+
+    .colour-swatch:nth-child(5) {
+      height: 52%;
+      background: #e9e2df;
+      transform: translateY(4%);
+    }
+
+    .colour-caption {
+      position: absolute;
+      bottom: -26px;
+      left: 0;
+      color: rgba(233, 226, 223, 0.56);
+      font-size: 8px;
+      letter-spacing: 0.12em;
+    }
+
+    /* VISUAL STUDY 04: STORYTELLING */
+
+    .art-story {
+      background:
+        linear-gradient(125deg, transparent 45%, rgba(146, 47, 64, 0.13)),
+        #1f1e20;
+    }
+
+    .story-frames {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 76%;
+      height: 56%;
+      transform: rotate(-5deg);
+      transition: transform 0.5s ease;
+    }
+
+    .explore-card:hover .story-frames {
+      transform: rotate(0) scale(1.04);
+    }
+
+    .story-frame {
+      position: relative;
+      flex: 1;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid rgba(233, 226, 223, 0.25);
+    }
+
+    .story-frame:nth-child(1) {
+      background: linear-gradient(155deg, #3f3539 0 40%, #641e2b 40% 65%, #1b191b 65%);
+      transform: translateY(15%);
+    }
+
+    .story-frame:nth-child(2) {
+      background: linear-gradient(35deg, #171719 0 40%, #922f40 40% 62%, #b7a29a 62%);
+    }
+
+    .story-frame:nth-child(3) {
+      background: linear-gradient(145deg, #b7a29a 0 30%, #292629 30% 68%, #641e2b 68%);
+      transform: translateY(-13%);
+    }
+
+    .story-frame::after {
+      content: "";
+      position: absolute;
+      right: -20%;
+      bottom: -10%;
+      width: 90%;
+      aspect-ratio: 1;
+      border: 1px solid rgba(233, 226, 223, 0.55);
+      border-radius: 50%;
+    }
+
+    /* PERSONAL NOTE */
+
+    .explore-note {
+      display: grid;
+      grid-template-columns: 0.65fr 1.35fr;
+      gap: 40px;
+      padding: 38px 0 52px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .note-label {
+      color: var(--taupe);
+      font-size: 9px;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .note-content h2 {
+      max-width: 650px;
+      margin: 0;
+      font-size: clamp(24px, 4vw, 43px);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.055em;
+    }
+
+    .note-content h2 em {
+      color: var(--taupe);
+      font-weight: 400;
+    }
+
+    .note-content p {
+      max-width: 540px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    /* CONTACT STRIP */
+
+    .explore-contact {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 52px 0;
+    }
+
+    .explore-contact h2 {
+      margin: 0;
+      font-size: clamp(22px, 3.5vw, 35px);
+      font-weight: 400;
+      letter-spacing: -0.055em;
+    }
+
+    .explore-contact p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      gap: 15px;
+      padding: 15px 18px;
+      border: 1px solid rgba(233, 226, 223, 0.35);
+      font-size: 10px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .contact-link:hover {
+      color: var(--obsidian);
+      background: var(--ivory);
+    }
+
+    .contact-link span {
+      transition: transform 0.25s ease;
+    }
+
+    .contact-link:hover span {
+      transform: translate(3px, -3px);
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 21px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-name {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: 9px;
+      text-align: right;
+    }
+
+    /* RESPONSIVE */
+
+    @media (min-width: 1250px) {
+      .explore-grid {
+        gap: 40px 28px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .portfolio-frame {
+        padding: 0 4%;
+      }
+
+      .site-header {
+        min-height: 84px;
+      }
+
+      .site-navigation {
+        gap: 15px;
+      }
+
+      .nav-link {
+        font-size: 9px;
+      }
+
+      .nav-cta {
+        padding: 10px 12px;
+      }
+
+      .explore-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 60px;
+      }
+
+      .hero-aside {
+        justify-self: start;
+        max-width: 470px;
+      }
+
+      .hero-aside .aside-note {
+        margin-top: 13px;
+      }
+
+      .explore-section {
+        padding-bottom: 65px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .portfolio-frame {
+        width: 100%;
+        padding: 0 21px;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 16px;
+        padding: 24px 0;
+      }
+
+      .site-navigation {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 13px 19px;
+      }
+
+      .nav-cta {
+        padding: 9px 10px;
+      }
+
+      .explore-hero {
+        padding: 49px 0 32px;
+      }
+
+      .explore-title {
+        font-size: clamp(43px, 12vw, 65px);
+      }
+
+      .hero-aside p {
+        font-size: 11px;
+      }
+
+      .explore-section {
+        padding-top: 35px;
+        padding-bottom: 48px;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .section-heading p {
+        text-align: left;
+      }
+
+      .explore-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .study-art {
+        aspect-ratio: 1.25 / 1;
+      }
+
+      .type-layout .type-big {
+        font-size: clamp(66px, 17vw, 100px);
+      }
+
+      .explore-note {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 30px 0 36px;
+      }
+
+      .explore-contact {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 39px 0;
+      }
+
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      .footer-copy {
+        text-align: left;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .explore-card {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="portfolio-frame">
+
+    <!-- NAVIGATION -->
+    <header class="site-header">
+      <a href="index.html" class="site-name">ISRAR AHMED</a>
+
+      <nav class="site-navigation" aria-label="Main navigation">
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="explorations.html" class="nav-link" aria-current="page">Explorations</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-cta">
+          Start a Project <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- HERO -->
+      <section class="explore-hero">
+        <div>
+          <div class="eyebrow">Beyond the brief · 01</div>
+
+          <h1 class="explore-title">
+            Room to<br>
+            <em>experiment.</em>
+          </h1>
+        </div>
+
+        <div class="hero-aside">
+          <p>
+            Not every idea begins with a client brief.
+            Some begin with curiosity, a colour, a sentence,
+            or the simple urge to see what happens.
+          </p>
+
+          <span class="aside-note">A space for ideas in progress</span>
+        </div>
+      </section>
+
+      <!-- SELECTED EXPLORATIONS -->
+      <section class="explore-section" id="studies">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">The creative playground</div>
+            <h2>Selected explorations</h2>
+          </div>
+
+          <p>
+            Small studies in form, feeling, composition
+            and the way ideas become visual.
+          </p>
+        </div>
+
+        <div class="explore-grid">
+
+          <!-- STUDY 01 -->
+          <article class="explore-card">
+            <div class="study-art art-composition">
+              <span class="study-number">STUDY — 001</span>
+
+              <div class="composition-stage">
+                <span class="composition-dot"></span>
+              </div>
+
+              <span class="study-label">Form / Balance</span>
+            </div>
+
+            <div class="card-info">
+              <div>
+                <h3>Visual compositions</h3>
+                <p>
+                  Exploring balance, contrast, layering and the
+                  relationship between objects and empty space.
+                </p>
+              </div>
+
+              <span class="card-index">01</span>
+            </div>
+          </article>
+
+          <!-- STUDY 02 -->
+          <article class="explore-card">
+            <div class="study-art art-type">
+              <span class="study-number">STUDY — 002</span>
+
+              <div class="type-layout" aria-label="Experimental typography">
+                <span class="type-small">WORDS HAVE WEIGHT</span>
+                <span class="type-big">Type</span>
+                <span class="type-big type-outline">talks.</span>
+                <span class="type-rule"></span>
+              </div>
+
+              <span class="study-label">Type / Expression</span>
+            </div>
+
+            <div class="card-info">
+              <div>
+                <h3>Typography & expression</h3>
+                <p>
+                  Testing how type, spacing, scale and alignment
+                  can change the feeling of a message.
+                </p>
+              </div>
+
+              <span class="card-index">02</span>
+            </div>
+          </article>
+
+          <!-- STUDY 03 -->
+          <article class="explore-card">
+            <div class="study-art art-colour">
+              <span class="study-number">STUDY — 003</span>
+
+              <div class="colour-arrangement" aria-label="Colour palette study">
+                <span class="colour-swatch"></span>
+                <span class="colour-swatch"></span>
+                <span class="colour-swatch"></span>
+                <span class="colour-swatch"></span>
+                <span class="colour-swatch"></span>
+
+                <span class="colour-caption">
+                  TONE · MOOD · CONTRAST
+                </span>
+              </div>
+
+              <span class="study-label">Colour / Atmosphere</span>
+            </div>
+
+            <div class="card-info">
+              <div>
+                <h3>Colour & atmosphere</h3>
+                <p>
+                  Studying palettes, light and contrast to see
+                  how colour can create a mood before a word is read.
+                </p>
+              </div>
+
+              <span class="card-index">03</span>
+            </div>
+          </article>
+
+          <!-- STUDY 04 -->
+          <article class="explore-card">
+            <div class="study-art art-story">
+              <span class="study-number">STUDY — 004</span>
+
+              <div class="story-frames" aria-label="Three-frame visual story">
+                <span class="story-frame"></span>
+                <span class="story-frame"></span>
+                <span class="story-frame"></span>
+              </div>
+
+              <span class="study-label">Sequence / Story</span>
+            </div>
+
+            <div class="card-info">
+              <div>
+                <h3>Stories in frames</h3>
+                <p>
+                  Exploring how a sequence of visuals can carry
+                  an idea, build a mood and hold attention.
+                </p>
+              </div>
+
+              <span class="card-index">04</span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- PERSONAL NOTE -->
+      <section class="explore-note">
+        <div class="note-label">A note on the process</div>
+
+        <div class="note-content">
+          <h2>
+            Good design isn't only about knowing what works.
+            It's also about being willing to <em>try what might.</em>
+          </h2>
+
+          <p>
+            This space is for learning by doing—trying unfamiliar
+            approaches, combining unexpected ideas and developing
+            my visual language one experiment at a time.
+            Not everything needs to become a finished project.
+            Sometimes the exploration itself is the point.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="explore-contact">
+        <div>
+          <h2>Have an idea worth exploring?</h2>
+          <p>
+            Let's turn a rough thought into something worth seeing.
+          </p>
+        </div>
+
+        <a class="contact-link" href="contact.html">
+          Let's talk <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <a href="index.html" class="footer-name">ISRAR AHMED</a>
+
+      <div class="footer-copy">
+        © <span id="current-year"></span> · Made with curiosity.
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Automatically update the copyright year
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+
+    // Reveal each exploration card as it enters the viewport
+    const cards = document.querySelectorAll(".explore-card");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries, activeObserver) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              activeObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+      cards.forEach((card) => observer.observe(card));
+    } else {
+      cards.forEach((card) => card.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>

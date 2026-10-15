@@ -1,0 +1,1394 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#171719" />
+  <title>About Me | Israr Ahmed Mir</title>
+  <meta name="description" content="Get to know Israr Ahmed Mir — a creative professional interested in design, video editing, storytelling, technology, and learning." />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+
+  <style>
+    :root {
+      --obsidian: #171719;
+      --crimson: #641E2B;
+      --ruby: #922F40;
+      --charcoal: #292629;
+      --ivory: #E9E2DF;
+      --taupe: #B7A29A;
+      --muted: rgba(233, 226, 223, 0.64);
+      --line: rgba(233, 226, 223, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 110px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--obsidian);
+      color: var(--ivory);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .portfolio-frame {
+      width: min(1480px, 100%);
+      margin: 0 auto;
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    /* NAVIGATION */
+
+    .site-header {
+      min-height: 88px;
+      padding: 24px 5.5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-logo {
+      font-size: 15px;
+      letter-spacing: 0.15em;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: color 0.3s ease;
+    }
+
+    .site-logo:hover {
+      color: var(--taupe);
+    }
+
+    .site-navigation {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(15px, 2.5vw, 35px);
+      flex-wrap: wrap;
+    }
+
+    .site-navigation a {
+      font-size: 12px;
+      color: var(--muted);
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .site-navigation a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 1px;
+      background: var(--ruby);
+      transition: width 0.35s ease;
+    }
+
+    .site-navigation a:hover,
+    .site-navigation a.active {
+      color: var(--ivory);
+    }
+
+    .site-navigation a:hover::after,
+    .site-navigation a.active::after {
+      width: 100%;
+    }
+
+    /* HERO */
+
+    .about-hero {
+      padding: clamp(65px, 9vw, 125px) 7%;
+      display: grid;
+      grid-template-columns: 1.15fr 0.75fr;
+      align-items: center;
+      gap: clamp(35px, 7vw, 100px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      color: var(--taupe);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 10px;
+      font-weight: 600;
+      margin: 0 0 24px;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(44px, 7.2vw, 92px);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+      font-weight: 500;
+      margin: 0 0 28px;
+      max-width: 720px;
+    }
+
+    .about-hero h1 span {
+      color: var(--taupe);
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .hero-intro {
+      max-width: 540px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.4vw, 18px);
+    }
+
+    .hero-location {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px 18px;
+      color: var(--taupe);
+      font-size: 11px;
+    }
+
+    .hero-location span::before {
+      content: "— ";
+      color: var(--ruby);
+    }
+
+    .portrait-wrap {
+      position: relative;
+      max-width: 390px;
+      width: 100%;
+      justify-self: end;
+      perspective: 1000px;
+    }
+
+    .portrait-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 15px -15px -15px 15px;
+      border: 1px solid rgba(146, 47, 64, 0.7);
+      z-index: 0;
+      transition: transform 0.6s ease, border-color 0.6s ease;
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      position: relative;
+      z-index: 1;
+      background: var(--charcoal);
+      filter: saturate(0.8);
+      transition:
+        transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+        filter 0.6s ease;
+    }
+
+    .portrait-wrap:hover .portrait {
+      transform: translate(-5px, -5px) scale(1.015);
+      filter: saturate(1.05);
+    }
+
+    .portrait-wrap:hover::before {
+      transform: translate(7px, 7px);
+      border-color: var(--taupe);
+    }
+
+    .portrait-caption {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 25px;
+    }
+
+    /* SHARED SECTIONS */
+
+    .about-section {
+      padding: clamp(60px, 8vw, 105px) 7%;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* UPDATED SECTION INDEXING */
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(200px, 0.35fr) minmax(0, 1fr);
+      gap: 30px;
+      margin-bottom: 45px;
+      align-items: start;
+    }
+
+    .section-number {
+      color: var(--ruby);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      line-height: 1.8;
+      font-weight: 500;
+      padding-top: 11px;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      min-width: 0;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(30px, 4.5vw, 52px);
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+      font-weight: 500;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 16px 0 0;
+      font-size: 14px;
+    }
+
+    .story-copy {
+      max-width: 850px;
+      margin-left: 145px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.5vw, 18px);
+    }
+
+    .story-copy p {
+      margin: 0 0 20px;
+    }
+
+    .story-copy strong {
+      color: var(--ivory);
+      font-weight: 500;
+    }
+
+    /* PERSONAL INTERESTS */
+
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .interest-card {
+      background: var(--obsidian);
+      padding: 30px 25px;
+      min-height: 185px;
+      position: relative;
+      overflow: hidden;
+      transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+    }
+
+    .interest-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background: var(--ruby);
+      transition: width 0.4s ease;
+    }
+
+    .interest-card:hover {
+      background: #241d20;
+      transform: translateY(-7px);
+      z-index: 2;
+    }
+
+    .interest-card:hover::after {
+      width: 100%;
+    }
+
+    .interest-index {
+      display: inline-block;
+      color: var(--ruby);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      transition: transform 0.35s ease, color 0.35s ease;
+    }
+
+    .interest-card:hover .interest-index {
+      transform: translateX(6px);
+      color: var(--taupe);
+    }
+
+    .interest-card h3 {
+      font-size: 19px;
+      font-weight: 500;
+      margin: 22px 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .interest-card:hover h3 {
+      color: var(--taupe);
+    }
+
+    .interest-card p {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* EXPERIENCE */
+
+    .experience-intro {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 750px;
+      margin: -15px 0 38px 145px;
+    }
+
+    .experience-list {
+      margin-left: 145px;
+      border-top: 1px solid var(--line);
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: minmax(190px, 0.8fr) minmax(0, 1.4fr);
+      gap: 35px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+      transition:
+        padding-left 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .experience-item:hover {
+      padding-left: 10px;
+      border-bottom-color: rgba(146, 47, 64, 0.8);
+    }
+
+    .experience-label {
+      color: var(--taupe);
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      margin-bottom: 10px;
+    }
+
+    .experience-item h3 {
+      margin: 0;
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.35;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .experience-item:hover h3 {
+      color: var(--taupe);
+    }
+
+    .experience-description {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .experience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .experience-tags span {
+      border: 1px solid var(--line);
+      padding: 6px 10px;
+      font-size: 10px;
+      color: var(--ivory);
+      transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .experience-tags span:hover {
+      background: var(--crimson);
+      border-color: var(--ruby);
+      transform: translateY(-3px);
+    }
+
+    /* EDUCATION */
+
+    .education-card {
+      margin-left: 145px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      background: linear-gradient(
+        135deg,
+        rgba(100, 30, 43, 0.22),
+        transparent 70%
+      );
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 25px;
+      align-items: center;
+      transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .education-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(146, 47, 64, 0.8);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .education-card h3 {
+      font-size: clamp(20px, 2.6vw, 29px);
+      font-weight: 500;
+      margin: 0 0 8px;
+    }
+
+    .education-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .education-score {
+      color: var(--taupe);
+      font-size: clamp(22px, 3vw, 34px);
+      white-space: nowrap;
+      transition: transform 0.35s ease;
+    }
+
+    .education-card:hover .education-score {
+      transform: scale(1.06);
+    }
+
+    /* ACHIEVEMENTS */
+
+    .achievement-list {
+      margin-left: 145px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .achievement {
+      padding: 22px;
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+    }
+
+    .achievement:hover {
+      transform: translateY(-5px);
+      border-color: rgba(146, 47, 64, 0.8);
+      background: rgba(100, 30, 43, 0.12);
+    }
+
+    .achievement h3 {
+      font-size: 15px;
+      font-weight: 500;
+      margin: 0 0 8px;
+      transition: color 0.3s ease;
+    }
+
+    .achievement:hover h3 {
+      color: var(--taupe);
+    }
+
+    .achievement p {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* BEYOND WORK */
+
+    .beyond-section {
+      background: var(--charcoal);
+    }
+
+    .beyond-copy {
+      max-width: 760px;
+      margin-left: 145px;
+      font-size: clamp(16px, 1.8vw, 21px);
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .beyond-copy p {
+      margin: 0 0 20px;
+    }
+
+    .beyond-copy strong {
+      color: var(--ivory);
+      font-weight: 500;
+    }
+
+    .interest-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 28px 0 0 145px;
+    }
+
+    .interest-tags span {
+      border: 1px solid rgba(233, 226, 223, 0.22);
+      border-radius: 50px;
+      padding: 8px 14px;
+      font-size: 11px;
+      color: var(--ivory);
+      transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .interest-tags span:hover {
+      background: var(--crimson);
+      border-color: var(--ruby);
+      transform: translateY(-3px);
+    }
+
+    /* TECHNOLOGY */
+
+    .tech-grid {
+      margin-left: 145px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .tech-item {
+      padding: 20px;
+      border: 1px solid var(--line);
+      color: var(--ivory);
+      font-size: 13px;
+      position: relative;
+      overflow: hidden;
+      transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+    }
+
+    .tech-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3px;
+      height: 0;
+      background: var(--ruby);
+      transition: height 0.35s ease;
+    }
+
+    .tech-item:hover {
+      transform: translateX(5px);
+      border-color: rgba(146, 47, 64, 0.8);
+      background: rgba(100, 30, 43, 0.12);
+    }
+
+    .tech-item:hover::before {
+      height: 100%;
+    }
+
+    .tech-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+    /* CONTACT */
+
+    .contact-section {
+      padding: clamp(65px, 9vw, 120px) 7%;
+      background: var(--crimson);
+    }
+
+    .contact-section .eyebrow {
+      color: rgba(233, 226, 223, 0.75);
+    }
+
+    .contact-section h2 {
+      font-size: clamp(40px, 7vw, 80px);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      font-weight: 500;
+      max-width: 750px;
+      margin: 0 0 24px;
+    }
+
+    .contact-section > p {
+      color: rgba(233, 226, 223, 0.78);
+      font-size: 14px;
+      max-width: 550px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 35px;
+    }
+
+    .contact-links a {
+      border: 1px solid rgba(233, 226, 223, 0.45);
+      padding: 12px 17px;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      background: var(--ivory);
+      color: var(--crimson);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 25px 7%;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+    }
+
+    /* SCROLL REVEAL */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* TABLET */
+
+    @media (max-width: 900px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .site-navigation {
+        justify-content: flex-start;
+        gap: 20px;
+      }
+
+      .about-hero {
+        grid-template-columns: 1fr 0.65fr;
+        gap: 35px;
+      }
+
+      .section-heading {
+        grid-template-columns: minmax(150px, 0.35fr) minmax(0, 1fr);
+        gap: 22px;
+      }
+
+      .section-number {
+        font-size: 12px;
+      }
+
+      .story-copy,
+      .experience-intro,
+      .experience-list,
+      .education-card,
+      .achievement-list,
+      .beyond-copy,
+      .interest-tags,
+      .tech-grid {
+        margin-left: 100px;
+      }
+
+      .interest-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+      .portfolio-frame {
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .site-header {
+        padding: 22px 6%;
+      }
+
+      .site-navigation {
+        gap: 14px 18px;
+      }
+
+      .site-navigation a {
+        font-size: 11px;
+      }
+
+      .about-hero {
+        padding: 65px 6%;
+        grid-template-columns: 1fr;
+      }
+
+      .about-hero h1 {
+        font-size: clamp(47px, 13vw, 68px);
+      }
+
+      .portrait-wrap {
+        max-width: 310px;
+        justify-self: start;
+        margin: 10px 15px 10px 0;
+      }
+
+      .about-section {
+        padding: 65px 6%;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 30px;
+      }
+
+      .section-number {
+        font-size: 12px;
+        line-height: 1.7;
+        padding-top: 0;
+        max-width: 100%;
+      }
+
+      .story-copy,
+      .experience-intro,
+      .experience-list,
+      .education-card,
+      .achievement-list,
+      .beyond-copy,
+      .interest-tags,
+      .tech-grid {
+        margin-left: 0;
+      }
+
+      .experience-intro {
+        margin-top: 0;
+        margin-bottom: 30px;
+      }
+
+      .experience-item {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 25px 0;
+      }
+
+      .interest-grid,
+      .achievement-list,
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .interest-card {
+        min-height: auto;
+      }
+
+      .education-card {
+        grid-template-columns: 1fr;
+        padding: 23px;
+        gap: 15px;
+      }
+
+      .education-score {
+        font-size: 28px;
+      }
+
+      .beyond-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+
+      .interest-tags {
+        margin-top: 25px;
+      }
+
+      .contact-section {
+        padding: 70px 6%;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .contact-links a {
+        text-align: center;
+      }
+
+      .site-footer {
+        padding: 22px 6%;
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    /* ACCESSIBILITY */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      .interest-card:hover,
+      .achievement:hover,
+      .tech-item:hover,
+      .education-card:hover,
+      .experience-item:hover,
+      .experience-tags span:hover,
+      .interest-tags span:hover,
+      .contact-links a:hover,
+      .portrait-wrap:hover .portrait {
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="portfolio-frame">
+
+    <header class="site-header">
+      <a href="index.html" class="site-logo">ISRAR AHMED</a>
+
+      <nav class="site-navigation" aria-label="Main navigation">
+        <a href="projects.html">Projects</a>
+        <a href="services.html">Services</a>
+        <a href="explorations.html">Explorations</a>
+        <a href="about.html" class="active">About Me</a>
+        <a href="contact.html" class="nav-cta">
+  Start a Project ↗
+</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- HERO -->
+
+      <section class="about-hero">
+        <div class="reveal">
+          <p class="eyebrow">A little about the person behind the work</p>
+
+          <h1>A mind full of <span>stories.</span></h1>
+
+          <p class="hero-intro">
+            I'm Israr Ahmed Mir — a creative person, a curious learner,
+            and someone who enjoys exploring different ways to understand
+            people, ideas, and the world around me.
+          </p>
+
+          <div class="hero-location">
+            <span>Originally from Poonch, J&amp;K</span>
+            <span>Currently in Delhi</span>
+            <span>Going to explore</span>
+          </div>
+        </div>
+
+        <div class="portrait-wrap reveal">
+          <img
+            class="portrait"
+            src="assets/images/israr-portrait.jpg"
+            alt="Portrait of Israr Ahmed Mir"
+          />
+
+          <p class="portrait-caption">Still learning. Still becoming.</p>
+        </div>
+      </section>
+
+      <!-- MY STORY -->
+
+      <section class="about-section" id="my-story">
+        <div class="section-heading reveal">
+          <span class="section-number">01 / MY STORY</span>
+
+          <div>
+            <h2>More than one thing.<br />More than one direction.</h2>
+            <p>I have never been someone who wants to fit into just one box.</p>
+          </div>
+        </div>
+
+        <div class="story-copy reveal">
+          <p>
+            Growing up in <strong>Poonch, Jammu &amp; Kashmir</strong>, and later
+            living in Jaipur and Delhi has given me different experiences,
+            perspectives, and ways of looking at things. Every place,
+            conversation, and challenge has taught me something.
+          </p>
+
+          <p>
+            I enjoy <strong>creating, communicating, and understanding ideas</strong>.
+            Sometimes that means turning a thought into a visual design.
+            Sometimes it means editing a video, writing something personal,
+            or helping an idea find its voice.
+          </p>
+
+          <p>
+            My journey has included creative work, marketing environments,
+            client collaborations, team responsibilities, and a growing
+            interest in technology. I'm still exploring what I can do,
+            and I see that curiosity as a strength rather than a limitation.
+          </p>
+        </div>
+      </section>
+
+      <!-- PERSONAL INTERESTS -->
+
+      <section class="about-section" id="interests">
+        <div class="section-heading reveal">
+          <span class="section-number">02 / WHAT I ENJOY</span>
+
+          <div>
+            <h2>The things that<br />make me, me.</h2>
+            <p>Interests that influence how I think, create, and connect.</p>
+          </div>
+        </div>
+
+        <div class="interest-grid">
+          <article class="interest-card reveal">
+            <span class="interest-index">01</span>
+            <h3>Poetry &amp; Writing</h3>
+            <p>Finding words for feelings, noticing the little things, and turning thoughts into stories.</p>
+          </article>
+
+          <article class="interest-card reveal">
+            <span class="interest-index">02</span>
+            <h3>Reading Books</h3>
+            <p>Exploring new perspectives, discovering ideas, and learning from experiences beyond my own.</p>
+          </article>
+
+          <article class="interest-card reveal">
+            <span class="interest-index">03</span>
+            <h3>Video Editing</h3>
+            <p>Bringing visuals, music, pacing, and storytelling together to make content feel meaningful.</p>
+          </article>
+
+          <article class="interest-card reveal">
+            <span class="interest-index">04</span>
+            <h3>Football &amp; Teamwork</h3>
+            <p>I enjoy the game, the discipline it builds, and the responsibility of working towards a shared goal.</p>
+          </article>
+
+          <article class="interest-card reveal">
+            <span class="interest-index">05</span>
+            <h3>Travel &amp; New Places</h3>
+            <p>Discovering unfamiliar places, meeting different people, and collecting new perspectives.</p>
+          </article>
+
+          <article class="interest-card reveal">
+            <span class="interest-index">06</span>
+            <h3>Learning New Things</h3>
+            <p>Exploring unfamiliar skills, asking questions, and finding connections between different interests.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROFESSIONAL EXPERIENCE -->
+
+      <section class="about-section" id="experience">
+        <div class="section-heading reveal">
+          <span class="section-number">03 / EXPERIENCE</span>
+
+          <div>
+            <h2>Different teams.<br />Different stories.</h2>
+            <p>My experience across creative agencies, marketing teams, and individual client projects.</p>
+          </div>
+        </div>
+
+        <p class="experience-intro reveal">
+          My work has covered graphic design, video editing, social media
+          content, branding, campaign materials, and promotional creatives.
+          I've worked with different industries and adapted to different
+          client needs, content styles, and deadlines.
+        </p>
+
+        <div class="experience-list">
+
+          <!-- EXPERIENCE CATEGORY 1 -->
+
+          <article class="experience-item reveal">
+            <div>
+              <p class="experience-label">Agency Collaboration 01</p>
+              <h3>Digital Global<br />&amp; Zero Academy</h3>
+            </div>
+
+            <div>
+              <p class="experience-description">
+                Creative and marketing work involving promotional design,
+                campaign materials, social media content, and video editing.
+                Focused on communicating ideas clearly through visual and
+                video-based content.
+              </p>
+
+              <div class="experience-tags">
+                <span>Graphic Design</span>
+                <span>Video Editing</span>
+                <span>Marketing Creatives</span>
+                <span>Social Media</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- EXPERIENCE CATEGORY 2 -->
+
+          <article class="experience-item reveal">
+            <div>
+              <p class="experience-label">Agency Collaboration 02</p>
+              <h3>Blueberry Brands<br />· FDMS · Bazzaro</h3>
+            </div>
+
+            <div>
+              <p class="experience-description">
+                Worked across social media creatives, carousel designs,
+                promotional posts, branding materials, and short-form video
+                content. Video work included editing reels, working with
+                supplied footage or scripts, subtitles, text placement,
+                pacing, and visual presentation where required.
+              </p>
+
+              <div class="experience-tags">
+                <span>Social Media Design</span>
+                <span>Reels &amp; Video Editing</span>
+                <span>Carousel Design</span>
+                <span>Visual Branding</span>
+                <span>Content Execution</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- EXPERIENCE CATEGORY 3 -->
+
+          <article class="experience-item reveal">
+            <div>
+              <p class="experience-label">Individual Client Projects</p>
+              <h3>
+                Noonley / Kashmirpreneur<br />
+                Doctors Kashmir<br />
+                Himmat &amp; Hope<br />
+                Drug-Free Society Campaign<br />
+                Sonamarg Adventure Camp
+              </h3>
+            </div>
+
+            <div>
+              <p class="experience-description">
+                Worked on creative and promotional content for these clients,
+                including social media designs, marketing visuals, educational
+                and healthcare creatives, awareness campaign materials, and
+                adventure camp promotions. I also edited videos and reels for
+                client content, adapting the visuals and presentation to each
+                project's needs.
+              </p>
+
+              <div class="experience-tags">
+                <span>Graphic Design</span>
+                <span>Video Editing</span>
+                <span>Social Media Content</span>
+                <span>Campaign Materials</span>
+                <span>Promotional Design</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+
+      <section class="about-section" id="education">
+        <div class="section-heading reveal">
+          <span class="section-number">04 / EDUCATION</span>
+
+          <div>
+            <h2>Where learning<br />meets curiosity.</h2>
+            <p>My academic background brings together data, logic, technology, and problem-solving.</p>
+          </div>
+        </div>
+
+        <div class="education-card reveal">
+          <div>
+            <h3>Bachelor of Computer Applications</h3>
+            <p>Data Science Specialization · Apex University, Jaipur</p>
+            <p>2023 – 2026</p>
+          </div>
+
+          <div class="education-score">
+            8.51 <span style="font-size: 12px;">CGPA</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACHIEVEMENTS -->
+
+      <section class="about-section" id="achievements">
+        <div class="section-heading reveal">
+          <span class="section-number">05 / EXPERIENCES THAT SHAPED ME</span>
+
+          <div>
+            <h2>Lessons beyond<br />the classroom.</h2>
+            <p>Experiences that helped me develop confidence, communication, teamwork, and responsibility.</p>
+          </div>
+        </div>
+
+        <div class="achievement-list">
+          <article class="achievement reveal">
+            <h3>Football Team Captain</h3>
+            <p>Led the team for two years, building coordination, collaboration, and team spirit.</p>
+          </article>
+
+          <article class="achievement reveal">
+            <h3>Sports Leadership</h3>
+            <p>Served as sports head and was part of interdepartmental football runner-up teams for two years.</p>
+          </article>
+
+          <article class="achievement reveal">
+            <h3>Student Coordination</h3>
+            <p>Served as BCA coordinator for two years and class representative for five semesters.</p>
+          </article>
+
+          <article class="achievement reveal">
+            <h3>State-Level Recognition</h3>
+            <p>Won a state-level gold medal representing Jammu &amp; Kashmir in SSF during school.</p>
+          </article>
+
+          <article class="achievement reveal">
+            <h3>Sahityotsav, Kolkata</h3>
+            <p>Represented Jammu &amp; Kashmir in a literary event involving poetry and storytelling.</p>
+          </article>
+
+          <article class="achievement reveal">
+            <h3>Client Collaboration</h3>
+            <p>Learned to understand briefs, communicate ideas, adapt to feedback, and work towards deadlines.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- BEYOND WORK AND STUDY -->
+
+      <section class="about-section beyond-section" id="beyond">
+        <div class="section-heading reveal">
+          <span class="section-number">06 / BEYOND WORK AND STUDY</span>
+
+          <div>
+            <h2>I'm still figuring<br />things out — and I like that.</h2>
+            <p>There is a lot more to me than a job title or a qualification.</p>
+          </div>
+        </div>
+
+        <div class="beyond-copy reveal">
+          <p>
+            I want to keep exploring different sides of myself. I enjoy
+            writing poetry, reading books, playing football, editing videos,
+            travelling, and discovering things I have never tried before.
+          </p>
+
+          <p>
+            I like the idea of being able to learn something new at any stage
+            of life. I don't want curiosity to disappear just because I
+            become good at one thing. <strong>I'd rather keep growing,
+            experimenting, and finding new ways to express myself.</strong>
+          </p>
+
+          <p>
+            For me, creativity is not limited to design. It is also in the
+            way we observe, listen, tell stories, solve problems, and connect
+            with people.
+          </p>
+        </div>
+
+        <div class="interest-tags reveal">
+          <span>Poetry</span>
+          <span>Books</span>
+          <span>Football</span>
+          <span>Video Editing</span>
+          <span>Travel</span>
+          <span>Storytelling</span>
+          <span>Creative Thinking</span>
+          <span>Learning New Things</span>
+        </div>
+      </section>
+
+      <!-- TECHNOLOGY -->
+
+      <section class="about-section" id="technology">
+        <div class="section-heading reveal">
+          <span class="section-number">07 / TECHNOLOGY &amp; LEARNING</span>
+
+          <div>
+            <h2>Curious about how<br />things work.</h2>
+            <p>Alongside creative work, I'm continuing to explore technology through my Data Science background and practical learning.</p>
+          </div>
+        </div>
+
+        <div class="story-copy reveal">
+          <p>
+            I'm interested in understanding how data, code, and AI can
+            be used to solve real problems. I'm building my knowledge
+            step by step, focusing on learning the fundamentals and
+            applying them in practical ways.
+          </p>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech-item reveal">
+            Coding &amp; Programming
+            <span>Learning to build and understand practical solutions.</span>
+          </div>
+
+          <div class="tech-item reveal">
+            Data Cleaning &amp; Analytics
+            <span>Working with data to find patterns and useful insights.</span>
+          </div>
+
+          <div class="tech-item reveal">
+            Machine Learning
+            <span>Exploring models, methods, and data-driven predictions.</span>
+          </div>
+
+          <div class="tech-item reveal">
+            AI, LLMs &amp; Generative AI
+            <span>Learning about language models and emerging AI applications.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+
+      <section class="contact-section" id="contact">
+        <p class="eyebrow reveal">Have an idea? Let's talk.</p>
+
+        <h2 class="reveal">
+          Good work begins<br />with a conversation.
+        </h2>
+
+        <p class="reveal">
+          I'm open to creative collaborations, interesting opportunities,
+          new challenges, and conversations that lead somewhere meaningful.
+        </p>
+
+        <div class="contact-links reveal">
+          <a href="tel:+916006927015">Call · 6006927015</a>
+
+          <a
+            href="https://www.instagram.com/mira_unkn/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram ↗
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/israr-ahmed-mir-b33542293"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn ↗
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <span>ISRAR AHMED MIR</span>
+      <span>CREATIVITY · CURIOSITY · CONTINUOUS LEARNING</span>
+      <span>© <span id="current-year"></span></span>
+    </footer>
+
+  </div>
+
+  <script>
+    // Dynamic copyright year
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+
+    // Scroll-reveal animations
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -30px 0px"
+        }
+      );
+
+      revealElements.forEach((element) => {
+        revealObserver.observe(element);
+      });
+    } else {
+      revealElements.forEach((element) => {
+        element.classList.add("visible");
+      });
+    }
+  </script>
+</body>
+</html>

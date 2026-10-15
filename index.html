@@ -1,0 +1,1566 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171719">
+  <meta name="description" content="Israr Ahmed Mir — Independent Graphic Designer. Branding, social media design, campaigns and visual storytelling.">
+
+  <title>Israr Ahmed Mir — Graphic Designer</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/projects.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --obsidian: #171719;
+      --crimson: #641E2B;
+      --ruby: #922F40;
+      --charcoal: #292629;
+      --ivory: #E9E2DF;
+      --taupe: #B7A29A;
+      --muted: rgba(233, 226, 223, .65);
+      --line: rgba(233, 226, 223, .14);
+      --page-width: 1480px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 95px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--obsidian);
+      color: var(--ivory);
+      font-family: "DM Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .site-frame {
+      width: min(100%, var(--page-width));
+      margin: 0 auto;
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      overflow: clip;
+    }
+
+    .container,
+    .nav-inner {
+      width: min(calc(100% - 108px), 1260px);
+      margin: 0 auto;
+    }
+
+    /* NAVIGATION */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(23, 23, 25, .93);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      flex-shrink: 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .brand-dot {
+      color: var(--ruby);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(17px, 2.3vw, 34px);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 10px 0;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: color .3s ease;
+    }
+
+    .nav-links a:not(.nav-cta)::after {
+      content: "";
+      position: absolute;
+      bottom: 3px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--ruby);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--ivory);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-links .nav-cta {
+      padding: 15px 17px;
+      border: 1px solid var(--ruby);
+      background: var(--crimson);
+      color: var(--ivory);
+      transition: background .3s ease;
+    }
+
+    .nav-links .nav-cta:hover {
+      background: var(--ruby);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ivory);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* GENERAL ELEMENTS */
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--taupe);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 20px;
+      height: 1px;
+      background: var(--ruby);
+      flex-shrink: 0;
+    }
+
+    .section {
+      padding: clamp(75px, 9vw, 125px) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(230px, .58fr);
+      align-items: end;
+      gap: 35px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      margin: 17px 0 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(35px, 4.5vw, 62px);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -.065em;
+    }
+
+    .section-heading > p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.95;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      min-height: 47px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      font-size: 11px;
+      transition: background .3s, border-color .3s, transform .3s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-primary {
+      border-color: var(--ruby);
+      background: var(--crimson);
+    }
+
+    .button-primary:hover {
+      background: var(--ruby);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--taupe);
+      background: rgba(233, 226, 223, .04);
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      transition: color .25s;
+    }
+
+    .text-link span {
+      color: var(--ruby);
+      transition: transform .25s;
+    }
+
+    .text-link:hover {
+      color: var(--taupe);
+    }
+
+    .text-link:hover span {
+      transform: translateX(4px);
+    }
+
+    /* HERO */
+
+    .hero-reference {
+      position: relative;
+      padding: 0 0 85px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 68% 44%, rgba(100, 30, 43, .17), transparent 54%),
+        var(--obsidian);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 22px;
+      padding-top: 32px;
+      color: var(--taupe);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .15em;
+    }
+
+    .hero-title {
+      margin-top: 67px;
+    }
+
+    .hero-title h1 {
+      margin: 0;
+      color: var(--ivory);
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(72px, 9.2vw, 144px);
+      font-weight: 800;
+      line-height: .99;
+      letter-spacing: -.085em;
+      white-space: nowrap;
+    }
+
+    .hero-title h1 span {
+      color: var(--ruby);
+    }
+
+    .hero-subtitle-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 28px;
+      margin-top: 35px;
+    }
+
+    .hero-subtitle-row h2 {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(44px, 6.1vw, 94px);
+      font-weight: 400;
+      line-height: 1.13;
+      letter-spacing: -.075em;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 7px;
+      max-width: 290px;
+    }
+
+    .hero-tags span {
+      padding: 5px 9px;
+      border: 1px solid rgba(183, 162, 154, .48);
+      border-radius: 30px;
+      font-size: 8px;
+      white-space: nowrap;
+      transition: background .3s, border-color .3s;
+    }
+
+    .hero-tags span:hover {
+      border-color: var(--ruby);
+      background: var(--crimson);
+    }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 267px;
+      align-items: end;
+      gap: 65px;
+      margin-top: 95px;
+    }
+
+    .hero-intro {
+      max-width: 490px;
+    }
+
+    .hero-intro p {
+      margin: 20px 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(24px, 2.1vw, 31px);
+      line-height: 1.35;
+      letter-spacing: -.025em;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .hero-portrait {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1.08;
+      overflow: hidden;
+      border: 1px solid rgba(183, 162, 154, .3);
+      background: var(--charcoal);
+    }
+
+    .hero-portrait img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      transition: transform .7s ease;
+    }
+
+    .hero-portrait:hover img {
+      transform: scale(1.035);
+    }
+
+    .portrait-placeholder {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      background:
+        radial-gradient(circle, rgba(100, 30, 43, .24), transparent 60%),
+        var(--charcoal);
+    }
+
+    .portrait-placeholder span {
+      font-family: "Montserrat", sans-serif;
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -.09em;
+    }
+
+    .portrait-placeholder small {
+      color: var(--taupe);
+      font-size: 8px;
+      letter-spacing: .14em;
+    }
+
+    /* FEATURED PROJECTS */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 20px;
+    }
+
+    .project-card {
+      min-width: 0;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: rgba(41, 38, 41, .25);
+      transition: transform .35s, border-color .35s, background .35s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(146, 47, 64, .75);
+      background: rgba(41, 38, 41, .7);
+    }
+
+    .project-card > a {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .project-image {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #292629;
+    }
+
+    .project-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      transition: transform .6s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.025);
+    }
+
+    .project-number {
+      position: absolute;
+      z-index: 2;
+      top: 13px;
+      left: 13px;
+      padding: 7px 9px;
+      background: rgba(23, 23, 25, .9);
+      color: var(--ivory);
+      font-size: 9px;
+      letter-spacing: .1em;
+    }
+
+    .project-info {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 22px 20px 24px;
+    }
+
+    .project-category {
+      color: var(--taupe);
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .project-info h3 {
+      margin: 13px 0 10px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: -.035em;
+    }
+
+    .project-info p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 22px;
+      font-size: 10px;
+    }
+
+    .project-link span {
+      color: var(--ruby);
+      transition: transform .25s;
+    }
+
+    .project-card:hover .project-link span {
+      transform: translate(3px, -3px);
+    }
+
+    .section-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 22px;
+      margin-top: 35px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-bottom p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .service-card {
+      min-height: 205px;
+      padding: 24px 22px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      transition: background .35s;
+    }
+
+    .service-card:hover {
+      background: rgba(100, 30, 43, .14);
+    }
+
+    .service-number {
+      color: var(--taupe);
+      font-size: 9px;
+      letter-spacing: .13em;
+    }
+
+    .service-card h3 {
+      margin: 36px 0 12px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: -.035em;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    /* ABOUT PREVIEW */
+
+    .about-strip {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1fr);
+      align-items: start;
+      gap: clamp(45px, 9vw, 130px);
+    }
+
+    .about-strip h2 {
+      margin: 19px 0 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(36px, 4.5vw, 60px);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -.065em;
+    }
+
+    .about-copy p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    .about-copy .highlight {
+      color: var(--ivory);
+    }
+
+    .about-copy .text-link {
+      margin-top: 8px;
+    }
+
+    /* CONTACT */
+
+    .contact-section {
+      padding: clamp(75px, 9vw, 115px) 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-panel {
+      padding: clamp(28px, 5vw, 60px);
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(100, 30, 43, .2), transparent 52%),
+        rgba(41, 38, 41, .22);
+    }
+
+    .contact-panel h2 {
+      max-width: 780px;
+      margin: 21px 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(40px, 6vw, 76px);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: -.07em;
+    }
+
+    .contact-panel > p {
+      max-width: 560px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .contact-links {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 44px;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-item {
+      min-width: 0;
+      padding: 22px 18px 0 0;
+    }
+
+    .contact-item + .contact-item {
+      padding-left: 20px;
+      border-left: 1px solid var(--line);
+    }
+
+    .contact-item > span {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--taupe);
+      font-size: 9px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .contact-item a {
+      font-size: 12px;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+      transition: color .25s;
+    }
+
+    .contact-item a:hover {
+      color: var(--taupe);
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 60px;
+      padding: 27px 0 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-brand {
+      font-family: "Montserrat", sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .site-footer p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 10px;
+      transition: color .25s;
+    }
+
+    .footer-links a:hover {
+      color: var(--ivory);
+    }
+
+    /* SCROLL AND HERO ANIMATIONS */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .75s ease, transform .75s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: .1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: .2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: .3s;
+    }
+
+    .hero-meta,
+    .hero-title,
+    .hero-subtitle-row,
+    .hero-bottom {
+      animation: hero-entrance .85s both;
+    }
+
+    .hero-title {
+      animation-delay: .08s;
+    }
+
+    .hero-subtitle-row {
+      animation-delay: .16s;
+    }
+
+    .hero-bottom {
+      animation-delay: .24s;
+    }
+
+    @keyframes hero-entrance {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* TABLET */
+
+    @media (max-width: 1050px) {
+      .container,
+      .nav-inner {
+        width: calc(100% - 64px);
+      }
+
+      .hero-title h1 {
+        font-size: clamp(65px, 10vw, 105px);
+      }
+
+      .hero-subtitle-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .hero-tags {
+        justify-content: flex-start;
+        max-width: 100%;
+      }
+
+      .hero-bottom {
+        grid-template-columns: minmax(0, 1fr) 235px;
+        gap: 35px;
+        margin-top: 70px;
+      }
+
+      .project-grid {
+        gap: 14px;
+      }
+
+      .project-info {
+        padding: 18px 14px 21px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 760px) {
+      html {
+        scroll-padding-top: 78px;
+      }
+
+      .nav-inner {
+        width: calc(100% - 40px);
+        min-height: 72px;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 20px 20px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(23, 23, 25, .98);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(233, 226, 223, .07);
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .nav-links .nav-cta {
+        margin-top: 10px;
+        padding: 14px !important;
+        text-align: center;
+      }
+
+      .container {
+        width: calc(100% - 40px);
+      }
+
+      .hero-reference {
+        padding-bottom: 65px;
+      }
+
+      .hero-meta {
+        padding-top: 25px;
+        font-size: 8px;
+        letter-spacing: .07em;
+      }
+
+      .hero-meta span:last-child {
+        text-align: right;
+      }
+
+      .hero-title {
+        margin-top: 62px;
+      }
+
+      .hero-title h1 {
+        font-size: clamp(45px, 10.5vw, 72px);
+        letter-spacing: -.075em;
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+
+      .hero-subtitle-row {
+        margin-top: 22px;
+      }
+
+      .hero-subtitle-row h2 {
+        font-size: clamp(37px, 9vw, 56px);
+      }
+
+      .hero-tags {
+        gap: 6px;
+      }
+
+      .hero-tags span {
+        font-size: 8px;
+      }
+
+      .hero-bottom {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-top: 55px;
+      }
+
+      .hero-intro p {
+        font-size: 25px;
+      }
+
+      .hero-portrait {
+        width: min(100%, 360px);
+        aspect-ratio: 1 / 1.05;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 32px;
+      }
+
+      .section-heading h2 {
+        font-size: clamp(34px, 8.5vw, 50px);
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .project-image {
+        aspect-ratio: 3 / 4;
+      }
+
+      .project-info {
+        padding: 15px 12px 18px;
+      }
+
+      .project-info h3 {
+        font-size: 14px;
+      }
+
+      .project-info p {
+        font-size: 10px;
+      }
+
+      .project-category {
+        font-size: 8px;
+        letter-spacing: .07em;
+      }
+
+      .project-link {
+        font-size: 9px;
+      }
+
+      .section-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: 160px;
+        padding: 22px 19px;
+      }
+
+      .service-card h3 {
+        margin-top: 25px;
+      }
+
+      .about-strip {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .contact-links {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-item,
+      .contact-item + .contact-item {
+        padding: 20px 0;
+        border-left: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .contact-item:last-child {
+        border-bottom: 0;
+      }
+
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        aspect-ratio: 4 / 3;
+      }
+
+      .project-info {
+        min-height: 0;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-frame">
+
+    <!-- NAVIGATION -->
+    <header class="site-header">
+      <nav class="nav-inner" aria-label="Main navigation">
+
+        <a class="brand" href="index.html">
+          ISRAR AHMED<span class="brand-dot">.</span>
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mainNavigation"
+        >☰</button>
+
+        <div class="nav-links" id="mainNavigation">
+          <a href="projects.html">Projects</a>
+          <a href="services.html">Services</a>
+          <a href="projects.html">Explorations</a>
+          <a href="about.html">About</a>
+          <a href="contact.html" class="nav-cta">Start a Project ↗</a>
+        </div>
+
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- HERO -->
+      <section class="hero-reference">
+        <div class="container">
+
+          <div class="hero-meta">
+            <span>INDEPENDENT GRAPHIC DESIGNER</span>
+            <span>VISUALS WITH INTENTION — 2026</span>
+          </div>
+
+          <div class="hero-title">
+            <h1>Israr Ahmed<span>.</span></h1>
+          </div>
+
+          <div class="hero-subtitle-row">
+            <h2>graphic designer</h2>
+
+            <div class="hero-tags">
+              <span>Social Media</span>
+              <span>Branding</span>
+              <span>Print Design</span>
+              <span>Campaigns</span>
+              <span>Visual Storytelling</span>
+            </div>
+          </div>
+
+          <div class="hero-bottom">
+
+            <div class="hero-intro">
+              <div class="eyebrow">A LITTLE ABOUT MY APPROACH</div>
+
+              <p>
+                My focus is simple: create thoughtful, high-quality
+                designs that communicate clearly, help brands stand
+                out and leave a lasting impression.
+              </p>
+
+              <div class="hero-actions">
+                <a class="button button-primary" href="projects.html">
+                  Explore my work <span>↗</span>
+                </a>
+
+                <a class="button button-secondary" href="#contact">
+                  Start a project <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-portrait">
+              <img
+                src="assets/images/israr.jpeg"
+                alt="Portrait of Israr Ahmed Mir"
+                fetchpriority="high"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              >
+
+              <div class="portrait-placeholder">
+                <span>IAM.</span>
+                <small>YOUR PORTRAIT GOES HERE</small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED PROJECTS -->
+      <section class="section" id="selected-work">
+        <div class="container">
+
+          <div class="section-heading reveal">
+            <div>
+              <div class="eyebrow">SELECTED WORK</div>
+              <h2>A few things<br>I've created.</h2>
+            </div>
+
+            <p>
+              A selection of creative projects across campaigns,
+              social media design and brand communication. Each
+              project is an opportunity to turn an idea into
+              something clear, considered and memorable.
+            </p>
+          </div>
+
+          <div class="project-grid">
+
+            <!-- PROJECT 1 -->
+            <article class="project-card reveal reveal-delay-1">
+              <a
+                href="project.html?id=kashmir-preneur"
+                aria-label="View Kashmirpreneur project"
+              >
+                <div class="project-image">
+                  <img
+                    src="assets/images/projects/Kashmir%20Preneur%20-%204.png"
+                    alt="Kashmirpreneur campaign design"
+                    loading="lazy"
+                  >
+                  <span class="project-number">01 / 03</span>
+                </div>
+
+                <div class="project-info">
+                  <span class="project-category">Campaign · Social Media</span>
+                  <h3>Kashmirpreneur</h3>
+                  <p>
+                    Creative campaigns for Kashmiri startups,
+                    community initiatives and local experiences.
+                  </p>
+                  <span class="project-link">
+                    Explore project <span>↗</span>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+            <!-- PROJECT 2 -->
+            <article class="project-card reveal reveal-delay-2">
+              <a
+                href="project.html?id=drug-free-campaign"
+                aria-label="View Drug-Free Society Campaign project"
+              >
+                <div class="project-image">
+                  <img
+                    src="assets/images/projects/Banner%206X3%20Portait%20-%201.png"
+                    alt="Drug-Free Society campaign banner"
+                    loading="lazy"
+                  >
+                  <span class="project-number">02 / 03</span>
+                </div>
+
+                <div class="project-info">
+                  <span class="project-category">Awareness · Event Design</span>
+                  <h3>Drug-Free Society Campaign</h3>
+                  <p>
+                    Campaign visuals, event materials and awareness
+                    designs created for a community initiative.
+                  </p>
+                  <span class="project-link">
+                    Explore project <span>↗</span>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+            <!-- PROJECT 3 -->
+            <article class="project-card reveal reveal-delay-3">
+              <a
+                href="project.html?id=blueberry-brand-strategy"
+                aria-label="View Blueberry Marketing project"
+              >
+                <div class="project-image">
+                  <img
+                    src="assets/images/projects/BWS.png"
+                    alt="Blueberry Marketing design"
+                    loading="lazy"
+                  >
+                  <span class="project-number">03 / 03</span>
+                </div>
+
+                <div class="project-info">
+                  <span class="project-category">Branding · Digital Design</span>
+                  <h3>Blueberry Marketing</h3>
+                  <p>
+                    Social media creatives, carousels, festival designs
+                    and promotional content across different industries.
+                  </p>
+                  <span class="project-link">
+                    Explore project <span>↗</span>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+          </div>
+
+          <div class="section-bottom reveal">
+            <p>More projects, ideas and creative explorations await.</p>
+
+            <a class="text-link" href="projects.html">
+              View all projects <span>→</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="section" id="services">
+        <div class="container">
+
+          <div class="section-heading reveal">
+            <div>
+              <div class="eyebrow">WHAT I DO</div>
+              <h2>Creative work.<br>Thoughtful execution.</h2>
+            </div>
+
+            <p>
+              From developing a brand's visual identity to producing
+              engaging digital content, I help transform ideas into
+              creative work with clarity, consistency and purpose.
+            </p>
+          </div>
+
+          <div class="services-grid">
+
+            <article class="service-card reveal">
+              <span class="service-number">01 / DESIGN</span>
+              <h3>Graphic & Marketing Design</h3>
+              <p>
+                Posters, advertisements, promotional creatives,
+                banners and marketing materials.
+              </p>
+            </article>
+
+            <article class="service-card reveal reveal-delay-1">
+              <span class="service-number">02 / IDENTITY</span>
+              <h3>Brand Identity & Logo Design</h3>
+              <p>
+                Logo concepts, visual identities, colour palettes
+                and cohesive brand direction.
+              </p>
+            </article>
+
+            <article class="service-card reveal reveal-delay-2">
+              <span class="service-number">03 / SOCIAL</span>
+              <h3>Social Media Design & Content</h3>
+              <p>
+                Social posts, carousel designs, platform-specific
+                creatives and content visuals.
+              </p>
+            </article>
+
+            <article class="service-card reveal">
+              <span class="service-number">04 / VIDEO</span>
+              <h3>Video Editing & Reels</h3>
+              <p>
+                Short-form editing, subtitles, text placement,
+                pacing and visual grading.
+              </p>
+            </article>
+
+            <article class="service-card reveal reveal-delay-1">
+              <span class="service-number">05 / CAMPAIGNS</span>
+              <h3>Campaign & Event Design</h3>
+              <p>
+                Event posters, invitations, certificates,
+                standees and campaign materials.
+              </p>
+            </article>
+
+            <article class="service-card reveal reveal-delay-2">
+              <span class="service-number">06 / CREATIVE</span>
+              <h3>Creative Direction & Content Planning</h3>
+              <p>
+                Visual concepts, content planning and creative
+                decisions that bring projects together.
+              </p>
+            </article>
+
+          </div>
+
+          <div class="section-bottom reveal">
+            <p>Have a different creative requirement? Let's discuss it.</p>
+
+            <a class="text-link" href="services.html">
+              Explore all services <span>→</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ABOUT PREVIEW -->
+      <section class="section" id="about-preview">
+        <div class="container about-strip">
+
+          <div class="reveal">
+            <div class="eyebrow">A LITTLE ABOUT ME</div>
+            <h2>Curiosity behind the work.</h2>
+          </div>
+
+          <div class="about-copy reveal reveal-delay-1">
+            <p>
+              I'm a creative professional who enjoys bringing ideas
+              to life through design, storytelling and visual
+              communication. I care about the details — typography,
+              colour, composition and the feeling a design leaves behind.
+            </p>
+
+            <p>
+              Beyond design, I enjoy poetry, books, video editing,
+              football and exploring technology. I'm always curious
+              about new perspectives and better ways to communicate ideas.
+            </p>
+
+            <p class="highlight">
+              For me, good creative work isn't only about how something
+              looks. It's about what it communicates and how it connects.
+            </p>
+
+            <a class="text-link" href="about.html">
+              More about me <span>→</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact-section" id="contact">
+        <div class="container">
+
+          <div class="contact-panel reveal">
+            <div class="eyebrow">HAVE A PROJECT IN MIND?</div>
+
+            <h2>Let's make something meaningful.</h2>
+
+            <p>
+              Have an idea, a project or a creative challenge?
+              Get in touch and let's talk about how we can bring it to life.
+            </p>
+
+            <div class="hero-actions">
+              <a
+                class="button button-primary"
+                href="mailto:Israrahmir0087@gmail.com"
+              >
+                Email me <span>↗</span>
+              </a>
+            </div>
+
+            <div class="contact-links">
+
+              <div class="contact-item">
+                <span>Email</span>
+                <a href="mailto:Israrahmir0087@gmail.com">
+                  Israrahmir0087@gmail.com
+                </a>
+              </div>
+
+              <div class="contact-item">
+                <span>Phone</span>
+                <a href="tel:+916006927015">
+                  +91 60069 27015
+                </a>
+              </div>
+
+              <div class="contact-item">
+                <span>Instagram</span>
+                <a
+                  href="https://www.instagram.com/mira_unkn/?hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @mira_unkn ↗
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- FOOTER -->
+          <footer class="site-footer">
+            <a class="footer-brand" href="index.html">
+              ISRAR AHMED MIR<span class="brand-dot">.</span>
+            </a>
+
+            <p>
+              Independent graphic designer · ©
+              <span id="year">2026</span>
+            </p>
+
+            <div class="footer-links">
+              <a href="projects.html">Projects</a>
+              <a href="services.html">Services</a>
+              <a href="about.html">About</a>
+              <a href="#contact">Contact ↑</a>
+            </div>
+          </footer>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    /* MOBILE NAVIGATION */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNavigation = document.getElementById("mainNavigation");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mainNavigation.classList.toggle("is-open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    mainNavigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mainNavigation.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    /* SCROLL REVEAL ANIMATIONS */
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -30px 0px"
+        }
+      );
+
+      revealElements.forEach((element) => {
+        revealObserver.observe(element);
+      });
+    } else {
+      revealElements.forEach((element) => {
+        element.classList.add("is-visible");
+      });
+    }
+
+    /* CURRENT FOOTER YEAR */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>

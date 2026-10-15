@@ -1,0 +1,720 @@
+
+/* Project gallery: responsive folder layout */
+
+* {
+  box-sizing: border-box;
+}
+
+.projects-page,
+.projects-main,
+.projects-section {
+  width: 100%;
+  min-width: 0;
+}
+
+.projects-main,
+.projects-section {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 64px);
+}
+
+.folder-grid,
+#projects-grid,
+#projectsGrid,
+.project-grid,
+#project-grid,
+#projects-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 48px);
+  width: 100%;
+  align-items: start;
+}
+
+.folder-card {
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.folder-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.folder-artwork {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  isolation: isolate;
+  perspective: 1000px;
+  margin-bottom: 16px;
+}
+
+.folder-tab {
+  position: absolute;
+  z-index: 0;
+  left: 7%;
+  top: 3%;
+  width: 34%;
+  height: 9%;
+  border-radius: 8px 8px 0 0;
+  background: #641e2b;
+}
+
+.folder-back {
+  position: absolute;
+  z-index: 1;
+  top: 7%;
+  left: 5%;
+  width: 90%;
+  height: 88%;
+  object-fit: contain;
+  object-position: center;
+  padding: 4%;
+  background: #292629;
+  border: 1px solid rgba(233, 226, 223, 0.15);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  transition: transform 300ms ease;
+}
+
+.folder-back-1 {
+  transform: rotate(-5deg) translate(-2%, 1%);
+}
+
+.folder-back-2 {
+  transform: rotate(4deg) translate(2%, 0);
+}
+
+.folder-front {
+  position: absolute;
+  z-index: 2;
+  inset: 6% 7% 5% 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #292629;
+  border: 1px solid rgba(233, 226, 223, 0.2);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.3);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.folder-front img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #171719;
+}
+
+.folder-front img.image-not-found {
+  display: none;
+}
+
+.folder-open-label,
+.folder-count {
+  position: absolute;
+  z-index: 3;
+  bottom: 8%;
+  padding: 8px 10px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #e9e2df;
+  background: rgba(23, 23, 25, 0.88);
+}
+
+.folder-open-label {
+  left: 9%;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.folder-count {
+  right: 9%;
+}
+
+.folder-information {
+  display: grid;
+  gap: 8px;
+}
+
+.folder-category {
+  width: fit-content;
+  color: #b7a29a;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.folder-information h2 {
+  margin: 0;
+  color: #e9e2df;
+  font-size: clamp(18px, 1.5vw, 24px);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.folder-information p {
+  max-width: 60ch;
+  margin: 0;
+  color: #b7a29a;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.folder-link:hover .folder-front,
+.folder-link:focus-visible .folder-front {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4);
+}
+
+.folder-link:hover .folder-back-1,
+.folder-link:focus-visible .folder-back-1 {
+  transform: rotate(-8deg) translate(-4%, -1%);
+}
+
+.folder-link:hover .folder-back-2,
+.folder-link:focus-visible .folder-back-2 {
+  transform: rotate(7deg) translate(4%, -1%);
+}
+
+.folder-link:hover .folder-open-label,
+.folder-link:focus-visible .folder-open-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.folder-link:focus-visible {
+  outline: 2px solid #922f40;
+  outline-offset: 5px;
+}
+
+.projects-empty {
+  grid-column: 1 / -1;
+  color: #b7a29a;
+  padding-block: 48px;
+}
+
+/* Individual project page */
+
+#project-detail,
+.project-detail {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: 32px clamp(20px, 4vw, 64px) 80px;
+}
+
+.detail-heading {
+  max-width: 900px;
+  margin-bottom: 40px;
+}
+
+.detail-back {
+  display: inline-block;
+  margin-bottom: 36px;
+  color: #b7a29a;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.detail-category {
+  color: #b7a29a;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.detail-heading h1 {
+  margin: 8px 0 14px;
+  color: #e9e2df;
+  font-size: clamp(36px, 6vw, 76px);
+  line-height: 0.98;
+}
+
+.detail-heading > p:not(.detail-category) {
+  max-width: 65ch;
+  color: #b7a29a;
+  line-height: 1.7;
+}
+
+.detail-heading > span {
+  color: #922f40;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.detail-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 32px);
+  align-items: start;
+}
+
+.detail-image {
+  min-width: 0;
+  margin: 0;
+  padding: 12px;
+  background: #202022;
+  border: 1px solid rgba(233, 226, 223, 0.1);
+}
+
+.detail-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  background: #171719;
+}
+
+.detail-image figcaption {
+  padding-top: 10px;
+  color: #b7a29a;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+.detail-image.broken-image {
+  display: none;
+}
+
+.project-not-found {
+  padding-block: 80px;
+  color: #e9e2df;
+}
+
+.project-not-found a {
+  color: #b7a29a;
+}
+
+@media (min-width: 1500px) {
+  .folder-grid,
+  #projects-grid,
+  #projectsGrid,
+  .project-grid,
+  #project-grid,
+  #projects-container {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 760px) {
+  .projects-main,
+  .projects-section {
+    padding-inline: 18px;
+  }
+
+  .folder-grid,
+  #projects-grid,
+  #projectsGrid,
+  .project-grid,
+  #project-grid,
+  #projects-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .folder-artwork {
+    aspect-ratio: 4 / 3;
+  }
+
+  .folder-information h2 {
+    font-size: 21px;
+  }
+
+  .folder-open-label {
+    opacity: 1;
+    transform: none;
+  }
+
+  .detail-gallery {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  #project-detail,
+  .project-detail {
+    padding: 24px 18px 56px;
+  }
+
+  .detail-image {
+    padding: 8px;
+  }
+
+  .detail-image img {
+    max-height: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .folder-front,
+  .folder-back,
+  .folder-open-label {
+    transition: none;
+  }
+}
+
+
+/* =========================================
+   PROJECT DETAIL — MASONRY GALLERY
+   Preserves each design's original ratio
+========================================= */
+
+#project-detail,
+.project-detail {
+  width: 100% !important;
+  max-width: 1600px !important;
+  margin: 0 auto !important;
+  padding: 36px clamp(20px, 4vw, 64px) 80px !important;
+  display: block !important;
+}
+
+.detail-heading {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 0 36px;
+}
+
+.detail-heading h1 {
+  max-width: 1000px;
+  font-size: clamp(36px, 5vw, 72px);
+  line-height: 1.02;
+}
+
+/* Masonry layout: images flow into columns */
+.detail-gallery {
+  display: block !important;
+  width: 100%;
+  column-count: 3;
+  column-gap: clamp(14px, 2vw, 28px);
+}
+
+.detail-image {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  margin: 0 0 clamp(14px, 2vw, 28px);
+  padding: 10px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  background: #202022;
+  border: 1px solid rgba(233, 226, 223, 0.12);
+  overflow: hidden;
+}
+
+.detail-image img {
+  display: block;
+  width: 100%;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain;
+  object-position: center;
+  background: #171719;
+}
+
+.detail-image figcaption {
+  padding: 10px 2px 2px;
+  color: #b7a29a;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+/* Medium screens */
+@media (max-width: 1000px) {
+  .detail-gallery {
+    column-count: 2;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  #project-detail,
+  .project-detail {
+    padding: 24px 14px 48px !important;
+  }
+
+  .detail-heading {
+    margin-bottom: 24px;
+  }
+
+  .detail-gallery {
+    column-count: 1;
+    column-gap: 0;
+  }
+
+  .detail-image {
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+}
+
+/* =========================================
+   PORTFOLIO REFINEMENT
+   Hover descriptions, filter buttons, grid
+========================================= */
+
+/* 1. Responsive project grid */
+.folder-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.2vw, 34px);
+  align-items: start;
+  width: 100%;
+}
+
+/* Prevent individual cards from forcing oversized columns */
+.folder-grid > .folder-card {
+  min-width: 0;
+  width: 100%;
+}
+
+/* Keep folder artwork inside its own column */
+.folder-card .folder-artwork {
+  width: 100%;
+  min-width: 0;
+}
+
+/* 2. Hide descriptions until the information area is hovered */
+.folder-information p {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 260ms ease,
+    transform 260ms ease,
+    max-height 350ms ease,
+    margin 260ms ease;
+  pointer-events: none;
+}
+
+/* Reveal the description when hovering over the project title/info */
+.folder-information:hover p,
+.folder-information:focus-within p {
+  opacity: 1;
+  max-height: 260px;
+  margin-top: 10px;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Make project titles feel interactive */
+.folder-information h2 {
+  cursor: pointer;
+  transition: color 220ms ease;
+}
+
+.folder-information:hover h2,
+.folder-information h2:focus {
+  color: #B7A29A;
+}
+
+/* 3. Give filter buttons the portfolio colour palette */
+[data-filter],
+.filter-button,
+.filter-btn,
+.project-filter {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #292629;
+  color: #E9E2DF;
+  border: 1px solid #641E2B;
+  border-radius: 4px;
+  padding: 8px 13px;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease;
+}
+
+[data-filter]:hover,
+.filter-button:hover,
+.filter-btn:hover,
+.project-filter:hover {
+  background: #641E2B;
+  color: #E9E2DF;
+  border-color: #922F40;
+}
+
+[data-filter].active,
+.filter-button.active,
+.filter-btn.active,
+.project-filter.active {
+  background: #641E2B;
+  color: #E9E2DF;
+  border-color: #922F40;
+}
+
+/* Keyboard accessibility */
+[data-filter]:focus-visible,
+.filter-button:focus-visible,
+.filter-btn:focus-visible,
+.project-filter:focus-visible {
+  outline: 2px solid #B7A29A;
+  outline-offset: 3px;
+}
+
+/* 4. Medium screens: two columns */
+@media (max-width: 1050px) {
+  .folder-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 5. Phones: one column and always-visible descriptions */
+@media (max-width: 620px) {
+  .folder-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .folder-information p {
+    opacity: 1;
+    max-height: none;
+    overflow: visible;
+    margin-top: 8px;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .folder-information h2 {
+    cursor: default;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .folder-information p,
+  .folder-information h2,
+  [data-filter],
+  .filter-button,
+  .filter-btn,
+  .project-filter {
+    transition: none;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE PROJECT DETAIL PAGE
+   Adapts to browser width and zoom
+========================================== */
+
+/* Keep the detail page within the viewport */
+#project-detail,
+.project-detail {
+  width: min(100% - 48px, 1440px);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+/* Project heading: readable width, not stretched */
+.detail-heading {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto clamp(28px, 4vw, 52px) 0;
+  box-sizing: border-box;
+}
+
+/* Fluid project title */
+.detail-heading h1 {
+  font-size: clamp(2.2rem, 5.5vw, 5rem);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+  margin-block: 12px 18px;
+}
+
+/* Description scales gently and stays readable */
+.detail-heading > p:not(.detail-category) {
+  width: 100%;
+  max-width: 680px;
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+  line-height: 1.8;
+  overflow-wrap: break-word;
+}
+
+/* Responsive gallery */
+.detail-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 28px);
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Each design keeps its original proportions */
+.detail-gallery .detail-image {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.detail-gallery .detail-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Captions wrap instead of stretching the layout */
+.detail-gallery .detail-image figcaption {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* Medium screens and browser zoom */
+@media (max-width: 1000px) {
+  #project-detail,
+  .project-detail {
+    width: min(100% - 36px, 900px);
+  }
+
+  .detail-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .detail-heading {
+    max-width: 100%;
+  }
+}
+
+/* Narrow screens and phones */
+@media (max-width: 600px) {
+  #project-detail,
+  .project-detail {
+    width: calc(100% - 32px);
+  }
+
+  .detail-heading {
+    margin-bottom: 28px;
+  }
+
+  .detail-heading h1 {
+    font-size: clamp(2rem, 9vw, 3.2rem);
+  }
+
+  .detail-heading > p:not(.detail-category) {
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .detail-gallery {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+}
+

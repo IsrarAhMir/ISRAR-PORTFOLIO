@@ -1,0 +1,313 @@
+
+/* =====================================
+   ISRAR AHMED — GLOBAL DESIGN SYSTEM
+   ===================================== */
+
+:root {
+  --obsidian: #171719;
+  --crimson: #641E2B;
+  --ruby: #922F40;
+  --charcoal: #292629;
+  --ivory: #E9E2DF;
+  --taupe: #B7A29A;
+
+  --page-width: 1600px;
+  --page-padding: clamp(20px, 4vw, 64px);
+
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+
+  --transition-fast: 220ms ease;
+  --transition-medium: 400ms cubic-bezier(.2, .7, .2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--obsidian);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--ruby);
+  outline-offset: 5px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--ruby);
+  color: var(--ivory);
+}
+
+.site-shell {
+  width: min(100%, var(--page-width));
+  margin-inline: auto;
+  padding-inline: var(--page-padding);
+  border-inline: 1px solid rgba(233, 226, 223, 0.09);
+}
+
+.eyebrow {
+  display: block;
+  color: var(--taupe);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* Navigation */
+
+.site-header {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  min-height: 68px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid rgba(183, 162, 154, 0.35);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.brand-mark {
+  margin-left: 3px;
+  color: var(--ruby);
+  font-size: 0.62rem;
+}
+
+.main-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(14px, 2.1vw, 32px);
+}
+
+.main-navigation > a:not(.nav-cta) {
+  position: relative;
+  padding-block: 8px;
+  color: var(--taupe);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+}
+
+.main-navigation > a:not(.nav-cta)::after {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  left: 0;
+  height: 1px;
+  background: var(--ruby);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-fast);
+}
+
+.main-navigation > a:not(.nav-cta):hover {
+  color: var(--ivory);
+}
+
+.main-navigation > a:not(.nav-cta):hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-cta,
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border: 1px solid var(--ruby);
+  background: var(--crimson);
+  color: var(--ivory);
+  font-size: 0.73rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.nav-cta {
+  padding: 10px 13px;
+}
+
+.nav-cta span,
+.primary-button span {
+  font-size: 1rem;
+  transition: transform var(--transition-fast);
+}
+
+.nav-cta:hover,
+.primary-button:hover {
+  border-color: var(--ruby);
+  background: var(--ruby);
+}
+
+.nav-cta:hover span,
+.primary-button:hover span {
+  transform: translate(3px, -3px);
+}
+
+.primary-button {
+  width: fit-content;
+  padding: 15px 18px;
+}
+
+/* Mobile navigation control */
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid rgba(233, 226, 223, 0.25);
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 18px;
+  height: 1px;
+  background: var(--ivory);
+  transition: transform var(--transition-fast);
+}
+
+/* Reusable text links */
+
+.text-link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 12px;
+  color: var(--ivory);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.text-link span {
+  color: var(--ruby);
+  transition: transform var(--transition-fast);
+}
+
+.text-link:hover span {
+  transform: translate(4px, -4px);
+}
+
+/* Footer */
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 90px;
+  border-top: 1px solid rgba(183, 162, 154, 0.25);
+}
+
+.site-footer > span,
+.back-to-top {
+  color: var(--taupe);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+}
+
+.back-to-top {
+  transition: color var(--transition-fast);
+}
+
+.back-to-top:hover {
+  color: var(--ivory);
+}
+
+/* Motion support */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Scroll reveal states */
+
+.will-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 650ms ease,
+    transform 650ms cubic-bezier(.2, .7, .2, 1);
+}
+
+.will-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .will-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
