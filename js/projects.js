@@ -235,7 +235,7 @@ function folderCard(project, index) {
     >
       <a
         class="folder-link"
-        href="project.html?id=${encodeURIComponent(project.id)}"
+        href="project.html?id=${encodeURIComponent(project.id)}&v=${Date.now()}"
         aria-label="Open ${escapeHTML(project.title)} project"
       >
         <div class="folder-artwork">
