@@ -824,21 +824,23 @@ if ("IntersectionObserver" in window) {
     },
     { threshold: 0.1 }
   );
-        {
-          threshold: 0.1,
-          rootMargin: "0px 0px -25px 0px"
-        }
-      );
 
-      revealElements.forEach((element) => {
-        revealObserver.observe(element);
-      });
-    } else {
-      revealElements.forEach((element) => {
-        element.classList.add("is-visible");
-      });
-    }
+  revealElements.forEach((element) => {
+    revealObserver.observe(element);
+  });
+} else {
+  revealElements.forEach((element) => {
+    element.classList.add("is-visible");
+  });
+}
 
+/* SAFETY FALLBACK: keep content visible if animations fail */
+window.setTimeout(() => {
+  revealElements.forEach((element) => {
+    element.classList.add("is-visible");
+  });
+}, 1500);
+    
     /* UPDATE THE PROJECT COUNT AFTER projects.js RENDERS THE CARDS */
     function updateProjectCount() {
       const grid = document.getElementById("projects-grid");
